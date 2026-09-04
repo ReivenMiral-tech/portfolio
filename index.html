@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiven Angelo C. Miral | Frontend Developer & Funnel Specialist</title>
+    <link rel="icon" type="image/svg+xml" href="images/bday/r-fav.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              cyber: {
+                bg: '#05070f',
+                card: 'rgba(15, 23, 42, 0.65)',
+                border: 'rgba(56, 189, 248, 0.2)',
+                cyan: '#06b6d4',
+                violet: '#8b5cf6',
+                accent: '#38bdf8'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Glow Utilities */
+      .glow-cyan {
+        text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+      }
+
+      .box-glow {
+        box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
+      }
+
+      .box-glow-hover:hover {
+        box-shadow: 0 0 30px 2px rgba(139, 92, 246, 0.3);
+      }
+
+      /* Cyber Grid Background */
+      .bg-grid {
+        background-size: 40px 40px;
+        background-image:
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      }
+
+      /* Custom Scrollbar for Modal Preview */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 4px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(56, 189, 248, 0.4);
+        border-radius: 4px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(6, 182, 212, 0.8);
+      }
+
+      #imageScrollContainer {
+        height: 100%;
+        max-height: 100%;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Folder Tab Clip Path */
+      .folder-tab {
+        clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%);
+      }
+
+      /* Full-Page Screenshot Scroll Effect on Hover for Cards */
+      .screenshot-container {
+        position: relative;
+        overflow: hidden;
+        height: 280px;
+      }
+
+      .screenshot-img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 6s ease-in-out;
+      }
+
+      .group:hover .screenshot-img {
+        transform: translateY(calc(-100% + 280px));
+      }
+    </style>
+  </head>
+  <body class="bg-cyber-bg text-gray-200 font-sans antialiased overflow-x-hidden relative selection:bg-cyber-cyan selection:text-black">
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <nav class="fixed top-0 left-0 w-full bg-cyber-bg/80 backdrop-blur-xl z-50 border-b border-cyber-border">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex gap-4 lg:gap-[0] justify-start lg:justify-between items-center">
+        <a href="#" class="font-mono text-lg font-bold tracking-wider text-cyber-accent flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-cyber-cyan animate-ping"></span>
+          <span class="text-sm md:text-lg">REIVEN ANGELO <span class="text-cyber-violet"> MIRAL</span>
+          </span>
+        </a>
+        <div class="space-x-8 text-sm font-mono tracking-wide hidden md:block">
+          <a href="#about" class="hover:text-cyber-cyan transition-colors duration-200">// 01. ABOUT</a>
+          <a href="#skills" class="hover:text-cyber-cyan transition-colors duration-200">// 02. STACK</a>
+          <a href="#projects" class="hover:text-cyber-cyan transition-colors duration-200">// 03. BUILDS</a>
+        </div>
+        <a href="#contact" class="px-2 lg:px-4 py-2 text-xs font-mono border border-cyber-cyan/50 hover:border-cyber-cyan text-cyber-cyan rounded hover:bg-cyber-cyan/10 transition duration-300"> CONTACT ME ˅ </a>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="pb-24 flex items-center justify-center pt-24 px-6 relative bg-grid z-10">
+      <div class="max-w-4xl text-center space-y-6" data-aos="zoom-out" data-aos-duration="1000">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-cyan/30 bg-cyber-cyan/5 text-cyber-cyan font-mono text-xs tracking-wide mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> SYSTEM STATUS: READY FOR OPPORTUNITIES
+        </div>
+        <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-white leading-tight"> Building High-Performance <br />
+          <span class="bg-gradient-to-r from-cyber-cyan via-cyber-accent to-cyber-violet bg-clip-text text-transparent glow-cyan"> Web Interfaces & Funnels </span>
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed"> Front-End Developer specializing in high-converting landing pages, A/B split testing, custom checkout setups, and data analytics. </p>
+        <div class="pt-6 flex flex-wrap justify-center gap-4 font-mono text-sm">
+          <a href="#projects" class="px-8 py-3.5 bg-gradient-to-r from-cyber-cyan to-cyber-violet text-black font-semibold rounded shadow-lg hover:brightness-110 transition duration-300"> EXPLORE_BUILDS &rarr; </a>
+          <a href="#about" class="px-8 py-3.5 bg-cyber-card border border-cyber-border text-gray-300 rounded hover:border-cyber-cyan hover:text-white transition duration-300"> VIEW_SPECS </a>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-28 px-6 relative z-10 border-t border-cyber-border/40">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 items-stretch">
+        <div class="md:col-span-5 bg-cyber-card backdrop-blur-md rounded-xl p-8 border border-cyber-border box-glow flex flex-col justify-between" data-aos="fade-right">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-[200px] h-[200px] rounded-lg bg-gradient-to-br from-cyber-cyan/20 to-cyber-violet/20 border border-cyber-cyan/40 flex items-center justify-center font-mono text-2xl font-bold text-cyber-cyan mx-auto overflow-hidden">
+                <img src="/images/703474279_122279570192015679_3161115464387608917_n.jpg" loading="lazy" alt="Reiven" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">Reiven Angelo C. Miral</h3>
+            <p class="text-cyber-accent font-mono text-sm mb-4">Front-End Web Developer</p>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6"> Focused on building high-converting landing pages, executing A/B split tests, and integrating e-commerce setups via BuyGoods and ClickBank. </p>
+          </div>
+          <div class="border-t border-cyber-border/50 pt-4 font-mono text-xs space-y-2 text-gray-400">
+            <div class="flex justify-between">
+              <span>CORE FOCUS:</span>
+              <span class="text-gray-200">Web & Funnel Dev</span>
+            </div>
+            <div class="flex justify-between">
+              <span>LOCATION:</span>
+              <span class="text-gray-200">Batangas, Philippines</span>
+            </div>
+            <div class="flex justify-between">
+              <span>STATUS:</span>
+              <span class="text-emerald-400">Available</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-7 bg-cyber-card backdrop-blur-md rounded-xl p-8 border border-cyber-border flex flex-col justify-between" data-aos="fade-left">
+          <div>
+            <h2 class="font-mono text-xs text-cyber-cyan tracking-widest uppercase mb-2">// CAPABILITIES_OVERVIEW</h2>
+            <h3 class="text-3xl font-bold text-white mb-6">Engineered for quality, accuracy, and conversions.</h3>
+            <p class="text-gray-400 leading-relaxed mb-8"> Detail-oriented Front-End Web Developer experienced in building high-converting landing pages, executing A/B split tests, and integrating e-commerce setups. Proficient in HTML, CSS, JavaScript, and web analytics (GA4/GTM). Proven track record of turning designs into responsive web experiences while analyzing data to optimize user performance. </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 font-mono">
+            <div class="p-4 rounded bg-cyber-bg/60 border border-cyber-border/60">
+              <span class="block text-base lg:text-2xl font-bold text-cyber-violet">Web Build & Dev</span>
+              <span class="text-xs text-gray-400">Custom Sales Funnels</span>
+            </div>
+            <div class="p-4 rounded bg-cyber-bg/60 border border-cyber-border/60">
+              <span class="block text-base lg:text-2xl font-bold text-cyber-cyan">A/B Testing</span>
+              <span class="text-xs text-gray-400">CBSplit Optimization</span>
+            </div>
+            <div class="p-4 rounded bg-cyber-bg/60 border border-cyber-border/60">
+              <span class="block text-base lg:text-2xl font-bold text-cyber-accent">Analytics</span>
+              <span class="text-xs text-gray-400">GA4 & Performance Logs</span>
+            </div>
+            <div class="p-4 rounded bg-cyber-bg/60 border border-cyber-border/60">
+              <span class="block text-base lg:text-2xl font-bold text-emerald-400">Responsive</span>
+              <span class="text-xs text-gray-400">Mobile & PC Synergy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 relative z-10 border-t border-cyber-border/40 bg-cyber-bg/40">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-12" data-aos="fade-up">
+          <span class="font-mono text-xs text-cyber-cyan tracking-widest uppercase">// STACK_ARCHITECTURE</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Technologies & Tooling</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-sm" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition box-glow-hover flex items-center justify-between">
+            <span>HTML5 / CSS3</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition box-glow-hover flex items-center justify-between">
+            <span>JavaScript</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition box-glow-hover flex items-center justify-between">
+            <span>Tailwind / Bootstrap</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-cyan transition box-glow-hover flex items-center justify-between">
+            <span>BuyGoods / ClickBank</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-violet transition box-glow-hover flex items-center justify-between">
+            <span>CBSplit / A/B Testing</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-violet transition box-glow-hover flex items-center justify-between">
+            <span>GA4 / GTM</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-violet transition box-glow-hover flex items-center justify-between">
+            <span>WordPress / GHL</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+          <div class="p-5 rounded-lg bg-cyber-card border border-cyber-border hover:border-cyber-violet transition box-glow-hover flex items-center justify-between">
+            <span>Adobe PS / Figma</span>
+            <span class="text-cyber-cyan">✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-28 px-6 relative z-10 border-t border-cyber-border/40">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+          <div>
+            <span class="font-mono text-xs text-cyber-cyan tracking-widest uppercase">// FEATURED_BUILDS</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Portfolio Funnels & Offers</h2>
+          </div>
+          <p class="text-gray-400 font-mono text-xs mt-2 md:mt-0">HOVER_TO_PREVIEW | CLICK_FOR_INTERACTIVE_SCROLL</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Turmeric Project Card -->
+          <div onclick="openModal(
+            'Turmeric With BioPerine', 
+            [
+                '/images/turmeric-ss.png',
+            ]
+            )" class="group cursor-pointer relative" data-aos="fade-up">
+            <div class="flex items-center">
+              <div class="folder-tab bg-cyber-border/80 text-cyber-cyan font-mono text-xs px-4 py-1.5 font-bold flex items-center gap-2 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan group-hover:bg-black"></span> TURMERIC_BIOPERINE
+              </div>
+            </div>
+            <div class="bg-cyber-card rounded-b-xl rounded-tr-xl border border-cyber-border overflow-hidden group-hover:border-cyber-cyan transition-all duration-300 box-glow-hover flex flex-col justify-between -mt-px">
+              <div>
+                <div class="screenshot-container bg-slate-950 border-b border-cyber-border/60">
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg/40 to-transparent pointer-events-none z-10"></div>
+                  <img src="/images/turmeric-ss.png" alt="Turmeric Full Page" class="screenshot-img">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">Turmeric With BioPerine</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Moringa Project Card -->
+          <div onclick="openModal(
+            'Pure Moringa', 
+            [
+                '/images/moringa-ss.png',
+            ]
+            )" class="group cursor-pointer relative" data-aos="fade-up">
+            <div class="flex items-center">
+              <div class="folder-tab bg-cyber-border/80 text-cyber-cyan font-mono text-xs px-4 py-1.5 font-bold flex items-center gap-2 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan group-hover:bg-black"></span> PURE_MORINGA
+              </div>
+            </div>
+            <div class="bg-cyber-card rounded-b-xl rounded-tr-xl border border-cyber-border overflow-hidden group-hover:border-cyber-cyan transition-all duration-300 box-glow-hover flex flex-col justify-between -mt-px">
+              <div>
+                <div class="screenshot-container bg-slate-950 border-b border-cyber-border/60">
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg/40 to-transparent pointer-events-none z-10"></div>
+                  <img src="/images/moringa-ss.png" alt="Moringa Full Page" class="screenshot-img">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">Pure Moringa</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lion's Mane Project Card -->
+          <div onclick="openModal(
+            'Lions Mane Complex', 
+            [
+                '/images/lionsmane-ss.png',
+            ]
+            )" class="group cursor-pointer relative" data-aos="fade-up">
+            <div class="flex items-center">
+              <div class="folder-tab bg-cyber-border/80 text-cyber-cyan font-mono text-xs px-4 py-1.5 font-bold flex items-center gap-2 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan group-hover:bg-black"></span> LIONS_MANE_COMPLEX
+              </div>
+            </div>
+            <div class="bg-cyber-card rounded-b-xl rounded-tr-xl border border-cyber-border overflow-hidden group-hover:border-cyber-cyan transition-all duration-300 box-glow-hover flex flex-col justify-between -mt-px">
+              <div>
+                <div class="screenshot-container bg-slate-950 border-b border-cyber-border/60">
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg/40 to-transparent pointer-events-none z-10"></div>
+                  <img src="/images/lionsmane-ss.png" alt="Moringa Full Page" class="screenshot-img">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">Lions Mane Complex</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Berberine & Berberine Max+ Project Card -->
+          <div onclick="openModal(
+            'Berberine & Berberine_Max+', 
+            [
+                '/images/berberine-ss.png',
+                '/images/berberinemax-ss.png',
+            ]
+            )" class="group cursor-pointer relative" data-aos="fade-up">
+            <div class="flex items-center">
+              <div class="folder-tab bg-cyber-border/80 text-cyber-cyan font-mono text-xs px-4 py-1.5 font-bold flex items-center gap-2 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan group-hover:bg-black"></span> BERBERINE & BERBERINE MAX+
+              </div>
+            </div>
+            <div class="bg-cyber-card rounded-b-xl rounded-tr-xl border border-cyber-border overflow-hidden group-hover:border-cyber-cyan transition-all duration-300 box-glow-hover flex flex-col justify-between -mt-px">
+              <div>
+                <div class="screenshot-container bg-slate-950 border-b border-cyber-border/60">
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg/40 to-transparent pointer-events-none z-10"></div>
+                  <img src="/images/berberine-ss.png" alt="Moringa Full Page" class="screenshot-img">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">Berberine & Berberine Max+</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Complete Thyroid TSL Project Card -->
+          <div onclick="openModal(
+            'Complete Thyroid TSL & DTC', 
+            [
+                '/images/ctdtc-ss.png',
+                '/images/cttsl-ss.png',
+            ]
+            )" class="group cursor-pointer relative" data-aos="fade-up">
+            <div class="flex items-center">
+              <div class="folder-tab bg-cyber-border/80 text-cyber-cyan font-mono text-xs px-4 py-1.5 font-bold flex items-center gap-2 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan group-hover:bg-black"></span> COMPLETE_THYROID_TSL_&_DTC
+              </div>
+            </div>
+            <div class="bg-cyber-card rounded-b-xl rounded-tr-xl border border-cyber-border overflow-hidden group-hover:border-cyber-cyan transition-all duration-300 box-glow-hover flex flex-col justify-between -mt-px">
+              <div>
+                <div class="screenshot-container bg-slate-950 border-b border-cyber-border/60">
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg/40 to-transparent pointer-events-none z-10"></div>
+                  <img src="/images/ctdtc-ss.png" alt="Moringa Full Page" class="screenshot-img">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">Complete Thyroid TSL & DTC</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Interactive Full-Page Scrollable Lightbox Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeModalOnBackdrop(event)">
+      <div class="bg-cyber-bg border border-cyber-cyan/50 rounded-2xl max-w-5xl w-full h-[85vh] max-h-[85vh] flex flex-col min-h-0 box-glow relative p-6 space-y-4">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between border-b border-cyber-border/60 pb-3 flex-shrink-0">
+          <div>
+            <span class="font-mono text-xs text-cyber-cyan tracking-widest uppercase">// PAGE_PREVIEW_MODAL | SCROLLABLE</span>
+            <h3 id="modalTitle" class="text-2xl font-bold text-white mt-0.5">Project Title</h3>
+          </div>
+          <button onclick="closeModal()" aria-label="Close modal" class="font-mono text-xs px-3 py-1.5 border border-cyber-cyan/40 text-cyber-cyan hover:bg-cyber-cyan hover:text-black rounded transition duration-200"> [ESC] CLOSE </button>
+        </div>
+        <!-- Full-Height Scrollable Image Container -->
+        <div class="relative rounded-xl border border-cyber-border/80 bg-slate-950 flex-1 min-h-0 overflow-hidden">
+          <!-- Fixed Navigation Controls -->
+          <button id="modalPrevBtn" onclick="prevImage()" aria-label="Previous screenshot" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 font-mono text-xs px-3 py-2 bg-cyber-bg/90 border border-cyber-cyan/50 text-cyber-cyan hover:bg-cyber-cyan hover:text-black rounded transition shadow-lg"> &larr; PREV </button>
+          <!-- Scrollable Inner Window -->
+          <div id="imageScrollContainer" class="absolute inset-0 overflow-y-auto custom-scrollbar p-2">
+            <img id="modalImage" src="" alt="Full Page Screenshot" onclick="openFullscreen()" class="w-full h-auto block object-top cursor-zoom-in hover:opacity-95 transition-opacity" title="Click to view full screen">
+          </div>
+          <button id="modalNextBtn" onclick="nextImage()" aria-label="Next screenshot" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 font-mono text-xs px-3 py-2 bg-cyber-bg/90 border border-cyber-cyan/50 text-cyber-cyan hover:bg-cyber-cyan hover:text-black rounded transition shadow-lg"> NEXT &rarr; </button>
+          <div id="modalCounter" class="absolute bottom-3 right-4 font-mono text-[10px] bg-cyber-bg/90 border border-cyber-border px-2.5 py-1 rounded text-cyber-cyan z-20"> 1 / 1 </div>
+        </div>
+        <!-- Thumbnail Strip -->
+        <div id="modalThumbnails" class="flex gap-3 overflow-x-auto pb-1 custom-scrollbar flex-shrink-0"></div>
+      </div>
+    </div>
+    <!-- Fullscreen Image Viewer Modal -->
+    <div id="fullscreenViewer" class="fixed inset-0 bg-black/95 backdrop-blur-lg z-[60] hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 cursor-zoom-out" onclick="closeFullscreen()">
+      <button onclick="closeFullscreen()" aria-label="Close fullscreen view" class="absolute top-6 right-6 font-mono text-xs px-4 py-2 border border-cyber-cyan/50 text-cyber-cyan hover:bg-cyber-cyan hover:text-black rounded transition z-10"> [ESC] CLOSE FULLSCREEN </button>
+      <div class="w-full h-full max-w-7xl max-h-screen overflow-auto custom-scrollbar flex justify-center items-start p-4" onclick="event.stopPropagation()">
+        <img id="fullscreenImage" src="" alt="Full Screen Screenshot" class="max-w-full h-auto rounded shadow-2xl">
+      </div>
+    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-28 px-6 relative z-10 border-t border-cyber-border/40 bg-cyber-bg/60">
+      <div class="max-w-2xl mx-auto text-center space-y-6" data-aos="zoom-in">
+        <span class="font-mono text-xs text-cyber-cyan tracking-widest uppercase">// TRANSMISSION_LINK</span>
+        <h2 class="text-4xl font-extrabold text-white">Initiate Collaboration</h2>
+        <p class="text-gray-400 leading-relaxed"> Looking for a front-end developer who understands clean code standards, checkout flows, and conversion performance? Let's connect. </p>
+        <div class="pt-4">
+          <a href="mailto:reivenmiral111098@gmail.com" class="inline-block px-8 py-4 bg-gradient-to-r from-cyber-cyan to-cyber-violet text-black font-mono font-bold rounded shadow-lg hover:brightness-110 transition duration-300"> SEND_MESSAGE() </a>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-cyber-border/30 text-center font-mono text-xs text-gray-500 relative z-10">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>© 2026 REIVEN ANGELO C. MIRAL</div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        once: true,
+        duration: 800
+      });
+      // Interactive Particle Canvas
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const particleCount = 45;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 1.5 + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#06b6d4';
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#06b6d4';
+          ctx.fill();
+        }
+      }
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 - distance / 1000})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+      /// Updated openModal function
+      function openModal(title, imagesArray) {
+        const modal = document.getElementById('imageModal');
+        const modalTitle = document.getElementById('modalTitle');
+        currentImages = Array.isArray(imagesArray) ? imagesArray : [imagesArray];
+        currentImageIndex = 0;
+        modalTitle.textContent = title;
+        updateGallery();
+        modal.classList.remove('hidden');
+        setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        document.body.style.overflow = 'hidden';
+      }
+
+      function updateGallery() {
+        const modalImage = document.getElementById('modalImage');
+        const modalCounter = document.getElementById('modalCounter');
+        const modalThumbnails = document.getElementById('modalThumbnails');
+        const prevBtn = document.getElementById('modalPrevBtn');
+        const nextBtn = document.getElementById('modalNextBtn');
+        const scrollContainer = document.getElementById('imageScrollContainer');
+        modalImage.src = currentImages[currentImageIndex];
+        modalCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+        // Reset scrollbar position to top of container when image switches
+        if (scrollContainer) {
+          scrollContainer.scrollTop = 0;
+        } else if (modalImage.parentElement) {
+          modalImage.parentElement.scrollTop = 0;
+        }
+        if (currentImages.length <= 1) {
+          prevBtn.classList.add('hidden');
+          nextBtn.classList.add('hidden');
+          modalThumbnails.classList.add('hidden');
+        } else {
+          prevBtn.classList.remove('hidden');
+          nextBtn.classList.remove('hidden');
+          modalThumbnails.classList.remove('hidden');
+          modalThumbnails.innerHTML = currentImages.map((imgSrc, idx) => `
+          
+															<button onclick="selectImage(${idx})" aria-label="View screenshot ${idx + 1}" class="relative flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentImageIndex ? 'border-cyber-cyan scale-105 shadow-md' : 'border-cyber-border/60 opacity-50 hover:opacity-100'}">
+																<img src="${imgSrc}" class="w-full h-full object-cover object-top" alt="Thumbnail ${idx + 1}">
+																</button>
+        `).join('');
+        }
+      }
+
+      function selectImage(index) {
+        currentImageIndex = index;
+        updateGallery();
+      }
+
+      function nextImage() {
+        if (currentImages.length <= 1) return;
+        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+        updateGallery();
+      }
+
+      function prevImage() {
+        if (currentImages.length <= 1) return;
+        currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+        updateGallery();
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }, 300);
+      }
+
+      function closeModalOnBackdrop(event) {
+        if (event.target.id === 'imageModal') closeModal();
+      }
+      document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('imageModal');
+        if (!modal.classList.contains('hidden')) {
+          if (e.key === 'ArrowRight') nextImage();
+          if (e.key === 'ArrowLeft') prevImage();
+          if (e.key === 'Escape') closeModal();
+        }
+      });
+
+      function openFullscreen() {
+        const modalImage = document.getElementById('modalImage');
+        const fullscreenViewer = document.getElementById('fullscreenViewer');
+        const fullscreenImage = document.getElementById('fullscreenImage');
+        fullscreenImage.src = modalImage.src;
+        fullscreenViewer.classList.remove('hidden');
+        setTimeout(() => fullscreenViewer.classList.remove('opacity-0'), 10);
+      }
+
+      function closeFullscreen() {
+        const fullscreenViewer = document.getElementById('fullscreenViewer');
+        fullscreenViewer.classList.add('opacity-0');
+        setTimeout(() => fullscreenViewer.classList.add('hidden'), 300);
+      }
+      // Update keyboard controls to support exiting full-screen view
+      document.addEventListener('keydown', (e) => {
+        const fullscreenViewer = document.getElementById('fullscreenViewer');
+        if (!fullscreenViewer.classList.contains('hidden')) {
+          if (e.key === 'Escape') closeFullscreen();
+          return;
+        }
+        const modal = document.getElementById('imageModal');
+        if (!modal.classList.contains('hidden')) {
+          if (e.key === 'ArrowRight') nextImage();
+          if (e.key === 'ArrowLeft') prevImage();
+          if (e.key === 'Escape') closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
